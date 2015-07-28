@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys, time, getopt
 from PIL import Image, ImageFilter
 from colormath.color_diff import delta_e_cie2000
