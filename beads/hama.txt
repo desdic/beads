@@ -1,0 +1,14 @@
+{
+    'Cream':            (240,232,185),
+    'Reddish Brown':    (127,51, 42),
+    'Dark Red':         (165,45, 54),
+    'Transparent Brown':(152,107,73),
+    'Flesh':            (222,155,144),
+    'Beige':            (222,180,139),
+    'Claret':           (185,57, 94),
+    'Turquoise':        (103,151,174),
+    'Fluorescent Blue': (38, 89, 178),
+    'Pastel Red':       (238,105,114),
+    'Pastel Purple':    (136,109,185),
+    'Pastel Pink':      (207,112,183)
+}
