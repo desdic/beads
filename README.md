@@ -16,6 +16,6 @@ pip install colormath
 # Examples
 
 Original image:
-![alt text][logo]
+![alt text][orig]
 
 [orig]: images/donald.jpg "Original image"
