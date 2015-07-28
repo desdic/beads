@@ -21,7 +21,7 @@ pip install colormath
 ## Created using: ./beads.py -i images/donald.jpg -o images/donald_all.jpg
 ![alt text][all]
 
-## Created using: ./beads.py -i images/donald.jpg -o images/donald_all8x8.jpg
+## Created using: ./beads.py -i images/donald.jpg -x 8 -y 8 -o images/donald_all8x8.jpg
 ![alt text][all8]
 
 ## Created using: ./beads.py -i images/donald.jpg -b beads/hama.txt -o images/donald_hama.jpg
