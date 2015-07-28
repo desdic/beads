@@ -40,3 +40,9 @@ pip install colormath
 [hama]: images/donald_hama.jpg "Converted image using hama colors"
 [hamafast]: images/donald_hamafast.jpg "Converted image using hama colors with fast color match"
 [multi]: images/donald_multifast.jpg "Converted image using multiple colors with fast color match"
+
+# TODO
+
+Show beads as round
+Diplay the number beads for every color needed to create the pegboard
+
