@@ -102,6 +102,7 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
     for y in xrange(0,yblocks):
         xstart = 0
         for x in xrange(0,xblocks):
+            """ The -1 is not a bug but just a easy way to create a seperator until I convert the squares into beads """
             box = (xstart, ystart, xstart+xgrid-1, ystart+ygrid-1)
             region = orig.crop(box)
 
