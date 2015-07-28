@@ -47,3 +47,4 @@ Show beads as round
 
 Diplay the number beads for every color needed to create the pegboard
 
+Add multiprocesser usage for faster processing
