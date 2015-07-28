@@ -36,7 +36,7 @@ pip install colormath
 
 [orig]: images/donald.jpg "Original image"
 [all]: images/donald_all.jpg "Converted image using all colors"
-[all8]: images/donald_all.jpg "Converted image using all colors but with a 8x8 grid"
+[all8]: images/donald_all8x8.jpg "Converted image using all colors but with a 8x8 grid"
 [hama]: images/donald_hama.jpg "Converted image using hama colors"
 [hamafast]: images/donald_hamafast.jpg "Converted image using hama colors with fast color match"
 [multi]: images/donald_multifast.jpg "Converted image using multiple colors with fast color match"
