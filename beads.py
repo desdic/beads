@@ -8,7 +8,7 @@ from colormath.color_conversions import convert_color
 from datetime import timedelta
 import math
 
-__version__ = 1.1
+__version__ = 1.2
 
 """ Fast but inaccurate way to find the distance between 2 colors """
 def colordistance(color1, color2):
@@ -143,11 +143,10 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
 
                 nr, ng, nb = beadcolors[index][0], beadcolors[index][1], beadcolors[index][2]
 
+            """ Clean canvas """
+            regionout = Image.new(region.mode, region.size, (0,0,0))
             if mode=='beads':
-                for yr in xrange(0,region.height):
-                    for xr in xrange(0,region.width):
-                        region.putpixel((xr,yr),(0, 0, 0))
-                d = ImageDraw.Draw(region)
+                d = ImageDraw.Draw(regionout)
                 r=0
                 d.ellipse((0-r, 0-r, region.width+r, region.height+r), fill=(nr, ng, nb))
                 r=-1*(math.sqrt(region.width*2))
@@ -155,9 +154,9 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
             else:
                 for yr in xrange(0,region.height):
                     for xr in xrange(0,region.width):
-                        region.putpixel((xr,yr),(nr, ng, nb))
+                        regionout.putpixel((xr,yr),(nr, ng, nb))
  
-            im.paste(region, box)
+            im.paste(regionout, box)
             blocks+=1
             if progress:
                 showprogress(blocks, numblocks, start_time)
