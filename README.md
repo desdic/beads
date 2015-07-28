@@ -24,6 +24,9 @@ pip install colormath
 ## Created using: ./beads.py -i images/donald.jpg -x 8 -y 8 -o images/donald_all8x8.jpg
 ![alt text][all8]
 
+## Created using: ./beads.py -i images/donald.jpg -m beads -o images/donald_allbeads.jpg
+![alt text][allbeads]
+
 ## Created using: ./beads.py -i images/donald.jpg -b beads/hama.txt -o images/donald_hama.jpg
 ![alt text][hama]
 
@@ -37,13 +40,12 @@ pip install colormath
 [orig]: images/donald.jpg "Original image"
 [all]: images/donald_all.jpg "Converted image using all colors"
 [all8]: images/donald_all8x8.jpg "Converted image using all colors but with a 8x8 grid"
+[allbeads]: images/donald_allbeads.jpg "Converted image using all colors but showing the beads"
 [hama]: images/donald_hama.jpg "Converted image using hama colors"
 [hamafast]: images/donald_hamafast.jpg "Converted image using hama colors with fast color match"
 [multi]: images/donald_multifast.jpg "Converted image using multiple colors with fast color match"
 
 # TODO
-
-Show beads as round
 
 Diplay the number beads for every color needed to create the pegboard
 
