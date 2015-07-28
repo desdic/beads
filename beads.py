@@ -176,9 +176,9 @@ if __name__ == "__main__":
         if opt in ('-q'):
             progress = False
         if opt in ('-x'):
-            xgrid = arg
+            xgrid = int(arg)
         if opt in ('-y'):
-            ygrid = arg
+            ygrid = int(arg)
         if opt in ('-f'):
             fastcolor = True
         if opt in ('-b'):
