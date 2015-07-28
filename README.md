@@ -18,4 +18,20 @@ pip install colormath
 Original image:
 ![alt text][orig]
 
+Created using: ./beads.py -i images/donald.jpg -o images/donald_all.jpg
+![alt text][orig]
+
+Created using: ./beads.py -i images/donald.jpg -b beads/hama.txt -o images/donald_hama.jpg
+![alt text][hama]
+
+Created using: ./beads.py -i images/donald.jpg -b beads/hama.txt -f -o images/donald_hamafast.jpg
+![alt text][hamafast]
+
+Created using: ./beads.py -i images/donald.jpg -b beads/multiplebeads.txt -f -o images/donald_multifast.jpg
+![alt text][hamafast]
+
 [orig]: images/donald.jpg "Original image"
+[all]: images/donald_all.jpg "Converted image using all colors"
+[hama]: images/donald_hama.jpg "Converted image using hama colors"
+[hamafast]: images/donald_hamafast.jpg "Converted image using hama colors with fast color match"
+[multi]: images/donald_multifast.jpg "Converted image using multiple colors with fast color match"
