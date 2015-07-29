@@ -6,7 +6,7 @@ I have added 2 color list of beads that I have found online. Unfortunately I hav
 
 # Requirements
 
-In order for this to work you have to install Pillow (Fork of PIL) and Colormath
+The software is written in Python so of course Python is a requirement (Get it from python.org). The following libraries are also required: Pillow (Fork of PIL) and Colormath
 
 ```
 pip install pillow
