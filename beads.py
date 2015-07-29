@@ -214,6 +214,8 @@ if __name__ == "__main__":
             mode = arg
         if opt in ('-c'):
             bgcolortmp = arg
+            tmp = bgcolortmp.split(',')
+            bgcolor = (int(tmp[0]), int(tmp[1]), int(tmp[2]))
         if opt in ('-o'):
             output = arg
 
@@ -225,9 +227,6 @@ if __name__ == "__main__":
     if image=='':
         print "No input image specified\n"
         help()
-    if bgcolortmp!='':
-        tmp = bgcolortmp.split(',')
-        bgcolor = (int(tmp[0]), int(tmp[1]), int(tmp[2]))
 
     beads(image, beadslist, fastcolor, progress, xgrid, ygrid, output, mode, bgcolor)
 
