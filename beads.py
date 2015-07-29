@@ -8,7 +8,7 @@ from colormath.color_conversions import convert_color
 from datetime import timedelta
 import math
 
-__version__ = 1.3
+__version__ = 1.4
 
 """ Fast but inaccurate way to find the distance between 2 colors """
 def colordistance(color1, color2):
@@ -28,6 +28,7 @@ def help():
     print "-b\t Specify a input file for beadcolors"
     print "-o\t Output file for final product"
     print "-m\t Mode. Default drawing is a box but if you add beads it will draw with beads"
+    print "-c\t background color. Default is 0,0,0 (Black)"
     print "\nExample: ./beads.py -i donald.jpg -b hama.txt -f -o donald_hama.jpg"
     sys.exit(0)
 
@@ -77,7 +78,7 @@ def showprogress(cur_val, end_val, start_time, bar_length=20):
     sys.stdout.flush()
 
 """ Turn an image into a mosaic to turn in into a beads image """
-def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8, output='', mode='box'):
+def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8, output='', mode='box', bgcolor=(0,0,0)):
 
     predefinedcolors = False
     if len(beadcolors):
@@ -91,7 +92,7 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
         sys.exit(1)
 
     orig = o.convert('P', palette=Image.ADAPTIVE).convert('RGB')
-    im = Image.new(orig.mode, orig.size, (0,0,0))
+    im = Image.new(orig.mode, orig.size, bgcolor)
 
     xblocks = orig.width/xgrid
     yblocks = orig.height/ygrid
@@ -143,13 +144,13 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
                 nr, ng, nb = beadcolors[index][0], beadcolors[index][1], beadcolors[index][2]
 
             """ Clean canvas """
-            regionout = Image.new(region.mode, region.size, (0,0,0))
+            regionout = Image.new(region.mode, region.size, bgcolor)
             if mode=='beads':
                 d = ImageDraw.Draw(regionout)
                 r=0
                 d.ellipse((0-r, 0-r, region.width+r, region.height+r), fill=(nr, ng, nb))
                 r=-1*(math.sqrt(region.width*2))
-                d.ellipse((0-r, 0-r, region.width+r, region.height+r), fill=(0, 0, 0))
+                d.ellipse((0-r, 0-r, region.width+r, region.height+r), fill=bgcolor)
             else:
                 for yr in xrange(0,region.height):
                     for xr in xrange(0,region.width):
@@ -167,8 +168,8 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
         d = ImageDraw.Draw(im)
         for y in xrange(0,im.height,ygrid):
             for x in xrange(0,im.width,xgrid):
-                d.line((x,y,im.height,y),fill=(0,0,0))
-                d.line((x,0,x,im.height),fill=(0,0,0))
+                d.line((x,y,im.height,y),fill=bgcolor)
+                d.line((x,0,x,im.height),fill=bgcolor)
 
     if output=='':
         im.show()
@@ -182,12 +183,14 @@ if __name__ == "__main__":
     xgrid, ygrid = 16, 16
     image = ''
     output = ''
+    bgcolor = (0,0,0)
+    bgcolortmp = ''
     progress = True
     fastcolor = False
     beadsfile = ''
     mode = 'box'
     argv = sys.argv[1:]
-    opts, args = getopt.getopt(argv,"hqfi:x:y:b:o:m:",[])
+    opts, args = getopt.getopt(argv,"hqfi:x:y:b:o:m:c:",[])
     for opt, arg in opts:
         if opt =='-h':
             help()
@@ -205,6 +208,8 @@ if __name__ == "__main__":
             image = arg
         if opt in ('-m'):
             mode = arg
+        if opt in ('-c'):
+            bgcolortmp = arg
         if opt in ('-o'):
             output = arg
 
@@ -216,6 +221,9 @@ if __name__ == "__main__":
     if image=='':
         print "No input image specified\n"
         help()
+    if bgcolortmp!='':
+        tmp = bgcolortmp.split(',')
+        bgcolor = (int(tmp[0]), int(tmp[1]), int(tmp[2]))
 
-    beads(image, beadslist, fastcolor, progress, xgrid, ygrid, output, mode)
+    beads(image, beadslist, fastcolor, progress, xgrid, ygrid, output, mode, bgcolor)
 
