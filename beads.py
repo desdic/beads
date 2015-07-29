@@ -8,7 +8,7 @@ from colormath.color_conversions import convert_color
 from datetime import timedelta
 import math
 
-__version__ = 1.4
+__version__ = 1.5
 
 """ Fast but inaccurate way to find the distance between 2 colors """
 def colordistance(color1, color2):
@@ -92,7 +92,10 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
         sys.exit(1)
 
     orig = o.convert('P', palette=Image.ADAPTIVE).convert('RGB')
-    im = Image.new(orig.mode, orig.size, bgcolor)
+
+    optimalx = int(orig.width/xgrid)*xgrid
+    optimaly = int(orig.height/ygrid)*ygrid
+    im = Image.new(orig.mode, (optimalx,optimaly), bgcolor)
 
     xblocks = orig.width/xgrid
     yblocks = orig.height/ygrid
