@@ -173,6 +173,7 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
             for x in xrange(0,im.width,xgrid):
                 d.line((x,y,im.height,y),fill=bgcolor)
                 d.line((x,0,x,im.height),fill=bgcolor)
+        d.line((im.width-1,0,im.width-1,im.height),fill=bgcolor)
 
     if output=='':
         im.show()
