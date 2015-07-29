@@ -8,7 +8,7 @@ from colormath.color_conversions import convert_color
 from datetime import timedelta
 import math
 
-__version__ = 1.2
+__version__ = 1.3
 
 """ Fast but inaccurate way to find the distance between 2 colors """
 def colordistance(color1, color2):
@@ -104,8 +104,7 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
     for y in xrange(0,yblocks):
         xstart = 0
         for x in xrange(0,xblocks):
-            """ The -1 is not a bug but just a easy way to create a seperator until I convert the squares into beads """
-            box = (xstart, ystart, xstart+xgrid-1, ystart+ygrid-1)
+            box = (xstart, ystart, xstart+xgrid, ystart+ygrid)
             region = orig.crop(box)
 
             ravg, gavg, bavg = 0, 0, 0
@@ -163,6 +162,13 @@ def beads(image, beadcolors={}, fastcolor=False, progress=True, xgrid=8, ygrid=8
 
             xstart+=xgrid
         ystart+=ygrid
+
+    if mode!='beads':
+        d = ImageDraw.Draw(im)
+        for y in xrange(0,im.height,ygrid):
+            for x in xrange(0,im.width,xgrid):
+                d.line((x,y,im.height,y),fill=(0,0,0))
+                d.line((x,0,x,im.height),fill=(0,0,0))
 
     if output=='':
         im.show()
