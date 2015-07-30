@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <kn@insecurity.dk> wrote this file.  As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return.   Kim Nielsen
+ * ----------------------------------------------------------------------------
+ */
+
+
 import sys, time, getopt
 from PIL import Image, ImageFilter, ImageDraw
 from colormath.color_diff import delta_e_cie2000
