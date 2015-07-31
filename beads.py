@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+# ----------------------------------------------------------------------------
+# "THE BEER-WARE LICENSE" (Revision 42):
+# <kn@insecurity.dk> wrote this file.  As long as you retain this notice you
+# can do whatever you want with this stuff. If we meet some day, and you think
+# this stuff is worth it, you can buy me a beer in return.   Kim Nielsen
+# ----------------------------------------------------------------------------
+
 import sys, time, getopt, math
 from PIL import Image, ImageFilter, ImageDraw
 from colormath.color_diff import delta_e_cie2000
@@ -8,7 +15,6 @@ from colormath.color_conversions import convert_color
 from datetime import timedelta
 from multiprocessing import Pool
 import multiprocessing
-#, Process
 
 __version__ = 2.0
 
