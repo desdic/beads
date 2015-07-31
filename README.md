@@ -36,7 +36,7 @@ pip install colormath
 ## Created using: ./beads.py -i images/donald.jpg -b beads/multiplebeads.txt -f -o images/donald_multifast.jpg
 ![alt text][multi]
 
-As a bonus I have added a converted photo of a Lemur.
+As a bonus I have added a converted photo of a Lemur using the beads I had available in multiplebeads.txt
 ![alt text][lemur]
 
 [orig]: images/donald.jpg "Original image"
