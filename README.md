@@ -36,6 +36,8 @@ pip install colormath
 ## Created using: ./beads.py -i images/donald.jpg -b beads/multiplebeads.txt -f -o images/donald_multifast.jpg
 ![alt text][multi]
 
+As a bonus I have added a converted photo of a Lemur.
+![alt text][lemur]
 
 [orig]: images/donald.jpg "Original image"
 [all]: images/donald_all.jpg "Converted image using all colors"
@@ -44,6 +46,7 @@ pip install colormath
 [hama]: images/donald_hama.jpg "Converted image using hama colors"
 [hamafast]: images/donald_hamafast.jpg "Converted image using hama colors with fast color match"
 [multi]: images/donald_multifast.jpg "Converted image using multiple colors with fast color match"
+[lemur]: images/lemur.jpg "From a photo of a Lemur"
 
 # TODO
 
