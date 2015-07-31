@@ -15,7 +15,7 @@ from colormath.color_conversions import convert_color
 from datetime import timedelta
 import math
 
-__version__ = 1.5
+__version__ = 1.6
 
 """ Fast but inaccurate way to find the distance between 2 colors """
 def colordistance(color1, color2):
